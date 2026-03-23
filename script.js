@@ -8,6 +8,7 @@ const players = [
   { id: "raphinha", name: "Raphinha", fotmobId: "696679", clubId: "8634" },
   { id: "kenan-yildiz", name: "Kenan Yıldız", fotmobId: "1412132", clubId: "9885" },
   { id: "pedri", name: "Pedri", fotmobId: "1083323", clubId: "8634" },
+  { id: "darwin-nunez", name: "Darwin Núñez", fotmobId: "950561", clubId: "2529" },
   { id: "gavi", name: "Gavi", fotmobId: "1279040", clubId: "8634" },
   { id: "robert-lewandowski", name: "Robert Lewandowski", fotmobId: "93447", clubId: "8634" },
   { id: "ferran-torres", name: "Ferran Torres", fotmobId: "881771", clubId: "8634" },

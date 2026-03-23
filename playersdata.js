@@ -62,6 +62,15 @@ const playerData = {
     gifs: []
   },
 
+  "darwin-nunez": {
+    name: "Darwin Núñez",
+    fotmobId: "950561",
+    clubId: "2529",
+    wallpapers: ["wallpapers/darwin-nunez1.jpg"],
+    edits: [],
+    gifs: []
+  },
+
   "joan-garcia": {
     name: "Joan García",
     fotmobId: "1167220",
