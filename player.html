@@ -14,15 +14,16 @@
   <h1 id="player-name"></h1>
   <button onclick="showTab('wallpapers')">Wallpapers</button>
   <button onclick="showTab('edits')">Edits</button>
-  <button onclick="showTab('videos')">Videos</button>
+  <button onclick="showTab('gifs')">Gifs</button>
 </div>
 
 <div id="wallpapers" class="tab-content"></div>
 <div id="edits" class="tab-content hidden"></div>
-<div id="videos" class="tab-content hidden"></div>
+<div id="gifs" class="tab-content hidden"></div>
 
 <div id="lightbox" onclick="closeLightbox()">
   <img id="lightbox-img" src="">
+  <a id="lightbox-download" class="download-btn"></a>
 </div>
 
 <script src="playersdata.js" defer></script>

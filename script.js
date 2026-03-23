@@ -1,10 +1,12 @@
 const players = [
+  { id: "ousmane-dembele", name: "Ousmane Dembélé", fotmobId: "692984", clubId: "9847" },
   { id: "joan-garcia", name: "Joan García", fotmobId: "1167220", clubId: "8634" },
   { id: "wojciech-szczesny", name: "Wojciech Szczesny", fotmobId: "169718", clubId: "8634" },
   { id: "pau-cubarsi", name: "Pau Cubarsí", fotmobId: "1532137", clubId: "8634" },
   { id: "lamine-yamal", name: "Lamine Yamal", fotmobId: "1467236", clubId: "8634" },
   { id: "xavi-espart", name: "Xavi Espart", fotmobId: "1815149", clubId: "8634" },
   { id: "raphinha", name: "Raphinha", fotmobId: "696679", clubId: "8634" },
+  { id: "kenan-yildiz", name: "Kenan Yıldız", fotmobId: "1412132", clubId: "9885" },
   { id: "pedri", name: "Pedri", fotmobId: "1083323", clubId: "8634" },
   { id: "gavi", name: "Gavi", fotmobId: "1279040", clubId: "8634" },
   { id: "robert-lewandowski", name: "Robert Lewandowski", fotmobId: "93447", clubId: "8634" },

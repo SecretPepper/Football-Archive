@@ -11,7 +11,7 @@ const playerData = {
     "wallpapers/lamine-yamal5.jpg",
     "wallpapers/lamine-yamal6.jpg",],
     edits: [],
-    videos: []
+    gifs: []
   },
 
   "raphinha": {
@@ -23,16 +23,25 @@ const playerData = {
     "wallpapers/raphinha2.jpg",
     "wallpapers/raphinha3.jpg"],
     edits: [],
-    videos: []
+    gifs: []
   },
 
   "wojciech-szczesny": {
     name: "Wojciech Szczesny",
     fotmobId: "169718",
     clubId: "8634",
-    wallpapers: ["wallpapers/wojciech-szczesny.jpg"],
+    wallpapers: ["wallpapers/wojciech-szczesny1.jpg"],
     edits: [],
-    videos: []
+    gifs: []
+  },
+
+  "kenan-yildiz": {
+    name: "Kenan Yıldız",
+    fotmobId: "1412132",
+    clubId: "9885",
+    wallpapers: ["wallpapers/kenan-yildiz1.jpg"],
+    edits: ["edits/kenan-yildiz1.mp4"],
+    gifs: []
   },
 
   "pedri": {
@@ -41,7 +50,7 @@ const playerData = {
     clubId: "8634",
     wallpapers: ["wallpapers/pedri1.jpg"],
     edits: [],
-    videos: []
+    gifs: []
   },
 
   "robert-lewandowski": {
@@ -49,8 +58,8 @@ const playerData = {
     fotmobId: "93447",
     clubId: "8634",
     wallpapers: ["wallpapers/robert-lewandowski1.jpg"],
-    edits: ["edits/robert-lewandowski1.mp4"],
-    videos: []
+    edits: [],
+    gifs: []
   },
 
   "joan-garcia": {
@@ -59,7 +68,7 @@ const playerData = {
     clubId: "8634",
     wallpapers: ["wallpapers/joan-garcia.jpg"],
     edits: [],
-    videos: []
+    gifs: []
   },
 
   "pau-cubarsi": {
@@ -68,7 +77,7 @@ const playerData = {
     clubId: "8634",
     wallpapers: ["wallpapers/pau-cubarsi1.jpg"],
     edits: [],
-    videos: []
+    gifs: []
   },
 
   "xavi-espart": {
@@ -77,7 +86,7 @@ const playerData = {
     clubId: "8634",
     wallpapers: ["wallpapers/xavi-espart1.jpg"],
     edits: [],
-    videos: []
+    gifs: []
   },
 
   "ferran-torres": {
@@ -86,7 +95,7 @@ const playerData = {
     clubId: "8634",
     wallpapers: ["wallpapers/ferran-torres1.jpg"],
     edits: [],
-    videos: []
+    gifs: []
   },
 
   "gerard-martin": {
@@ -95,7 +104,7 @@ const playerData = {
     clubId: "8634",
     wallpapers: ["wallpapers/gerard-martin1.jpg"],
     edits: [],
-    videos: []
+    gifs: []
   },
 
   "gavi": {
@@ -104,6 +113,15 @@ const playerData = {
     clubId: "8634",
     wallpapers: ["wallpapers/gavi1.jpg"],
     edits: [],
-    videos: []
+    gifs: []
+  },
+
+  "ousmane-dembele": {
+    name: "Ousmane Dembélé",
+    fotmobId: "692984",
+    clubId: "9847",
+    wallpapers: ["wallpapers/ousmane-dembele1.jpg"],
+    edits: ["edits/ousmane-dembele1.mp4"],
+    gifs: []
   }
 };

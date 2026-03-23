@@ -7,10 +7,10 @@ const player = playerData[playerId] || {
   clubId: null,
   wallpapers: [],
   edits: [],
+  gifs: [],
   videos: []
 };
 
-// Header (player image + name + club)
 document.getElementById("player-name").innerHTML = `
   ${player.fotmobId ? `
     <img 
@@ -22,50 +22,72 @@ document.getElementById("player-name").innerHTML = `
   <span>${player.name}</span>
 `;
 
-// Function to generate clickable images
-function makeImages(images) {
+function makeImages(images = []) {
   return images.map(url => `
-    <img src="${url}" loading="lazy" class="clickable-img" onclick="openLightbox('${url}')">
+    <div class="media-item">
+      <img 
+        src="${url}" 
+        loading="lazy" 
+        class="clickable-img" 
+        onclick="openLightbox(&quot;${url}&quot;)"
+      >
+
+      <a href="${url}" download class="download-btn">⬇</a>
+    </div>
   `).join("");
 }
 
-// Lightbox open function (no download)
 function openLightbox(url) {
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
+  const downloadBtn = document.getElementById("lightbox-download");
 
   lightboxImg.src = url;
+  downloadBtn.href = url;
+
   lightbox.style.display = "flex";
 }
 
-// Click-away to close lightbox (click outside image)
 document.getElementById("lightbox").addEventListener("click", function(e){
   if(e.target.id === "lightbox") {
     this.style.display = "none";
   }
 });
 
-// Generate images in tabs
-document.getElementById("wallpapers").innerHTML = makeImages(player.wallpapers);
+document.getElementById("wallpapers").innerHTML =
+  makeImages(player.wallpapers || []);
+
 document.getElementById("edits").innerHTML =
-  player.edits.map(e => {
+  (player.edits || []).map(e => {
     if (e.endsWith(".mp4")) {
       return `
-        <video controls class="edit-video">
-          <source src="${e}" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+        <div class="media-item">
+          <video controls class="edit-video">
+            <source src="${e}" type="video/mp4">
+          </video>
+
+          <a href="${e}" download class="download-btn">⬇</a>
+        </div>
       `;
     } else {
       return `
-        <img src="${e}" loading="lazy" class="clickable-img" onclick="openLightbox('${e}')">
+        <div class="media-item">
+          <img 
+            src="${e}" 
+            loading="lazy" 
+            class="clickable-img" 
+            onclick="openLightbox(&quot;${e}&quot;)"
+          >
+
+          <a href="${e}" download class="download-btn">⬇</a>
+        </div>
       `;
     }
   }).join("");
-document.getElementById("videos").innerHTML =
-  player.videos.map(v => `<iframe src="${v}" loading="lazy" allowfullscreen></iframe>`).join("");
 
-// Tabs function
+document.getElementById("gifs").innerHTML =
+  makeImages(player.gifs || []);
+
 function showTab(tab) {
   document.querySelectorAll(".tab-content").forEach(el => el.classList.add("hidden"));
   document.getElementById(tab).classList.remove("hidden");
