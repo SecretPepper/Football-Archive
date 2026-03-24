@@ -12,32 +12,75 @@ const players = [
   { id: "gavi", name: "Gavi", fotmobId: "1279040", clubId: "8634" },
   { id: "robert-lewandowski", name: "Robert Lewandowski", fotmobId: "93447", clubId: "8634" },
   { id: "ferran-torres", name: "Ferran Torres", fotmobId: "881771", clubId: "8634" },
+  { id: "gonzalo-garcia", name: "Gonzalo García", fotmobId: "1413847", clubId: "8633" },
   { id: "gerard-martin", name: "Gerard Martín", fotmobId: "1598982", clubId: "8634" }
 ];
 
 const container = document.getElementById("players-container");
+const searchInput = document.getElementById("search-input");
+const sortSelect = document.getElementById("sort-select");
 
 container.className = "players";
 
-container.innerHTML = players.map(player => `
-  <a href="player.html?id=${player.id}" class="player-card">
-    
-    <img 
-      src="https://images.fotmob.com/image_resources/playerimages/${player.fotmobId}.png"
-      onerror="this.style.display='none'"
-      class="player-img"
-      loading="lazy"
-    >
+function renderPlayers() {
+  const searchValue = searchInput.value.toLowerCase();
+  const sortValue = sortSelect.value;
 
-    <p>
-      ${player.name}
+  let filtered = players.map(player => {
+    const data = playerData[player.id] || {};
+    return {
+      ...player,
+      lastUpdated: data.lastUpdated || "",
+    };
+  });
+
+function normalizeString(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
+filtered = filtered.filter(p =>
+  normalizeString(p.name).includes(normalizeString(searchValue))
+);
+
+if (sortValue === "name") {
+  filtered.sort((a, b) => a.name.localeCompare(b.name));
+} else if (sortValue === "club") {
+  filtered.sort((a, b) => a.clubId.localeCompare(b.clubId));
+} else if (sortValue === "updated") {
+  filtered.sort((a, b) => new Date(b.lastUpdated) - new Date(a.lastUpdated));
+}
+
+  container.innerHTML = filtered.map(player => `
+    <a href="player.html?id=${player.id}" class="player-card">
+      
       <img 
-        src="https://images.fotmob.com/image_resources/logo/teamlogo/${player.clubId}.png"
+        src="https://images.fotmob.com/image_resources/playerimages/${player.fotmobId}.png"
         onerror="this.style.display='none'"
-        class="club-img"
+        class="player-img"
         loading="lazy"
       >
-    </p>
 
-  </a>
-`).join("");
+      <p>
+        ${player.name}
+        <img 
+          src="https://images.fotmob.com/image_resources/logo/teamlogo/${player.clubId}.png"
+          onerror="this.style.display='none'"
+          class="club-img"
+          loading="lazy"
+        >
+      </p>
+
+      ${player.lastUpdated ? `
+        <div class="card-date">
+          Updated: ${player.lastUpdated}
+        </div>
+      ` : ""}
+
+    </a>
+  `).join("");
+}
+
+searchInput.addEventListener("input", renderPlayers);
+sortSelect.addEventListener("change", renderPlayers);
+
+renderPlayers();

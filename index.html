@@ -13,9 +13,23 @@
 </header>
 
 <main>
+    <div class="controls">
+  <input 
+    type="text" 
+    id="search-input" 
+    placeholder="Search player..."
+  >
+
+  <select id="sort-select">
+  <option value="updated" selected>Last Updated</option>
+  <option value="name">Name</option>
+  <option value="club">Club</option>
+</select>
+    </div>
     <div id="players-container"></div>
 </main>
 
+<script src="playersdata.js" defer></script>
 <script src="script.js" defer></script>
 </body>
 </html>

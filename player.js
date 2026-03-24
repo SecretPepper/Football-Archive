@@ -19,7 +19,14 @@ document.getElementById("player-name").innerHTML = `
       onerror="this.style.display='none'"
     >
   ` : ""}
+  
   <span>${player.name}</span>
+
+  ${player.lastUpdated ? `
+    <div class="last-updated">
+      Last updated: ${player.lastUpdated}
+    </div>
+  ` : ""}
 `;
 
 function makeImages(images = []) {
